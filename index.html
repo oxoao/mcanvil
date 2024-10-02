@@ -76,6 +76,9 @@
                 vertical-align: top;
                 padding: 0 5px;
             }
+            #container {
+                min-height: 100vh;
+            }
             #btn-calc {
                 display: none;
                 padding: 10px 30px;
@@ -86,7 +89,7 @@
             }
             #left-panel {
                 display: inline-block;
-                min-height: 100vh;
+                margin: 0 0 20px 0;
             }
             #solution-panel {
                 display: inline-block;
@@ -105,44 +108,48 @@
         </style>
     </head>
     <body>
-        <h1>Minecraft Anvil Calculator</h1>
-        <div id="left-panel">
-            <canvas id="canvas" width="750" height="300"></canvas>
-            <div id="control-panel">
-                <button id="btn-calc">Calculate</button>
-                <div id="options-panel">
-                    <label for="input-minimise-uses">Minimise anvil uses</label>
-                    <input type="checkbox" id="input-minimise-uses"><br>
-                    <label for="input-incompatible">Allow incompatible</label>
-                    <input type="checkbox" id="input-incompatible">
-                    <br>
-                    <label for="input-misc">Show misc items</label>
-                    <input type="checkbox" id="input-misc">
-                    <br>
-                    <label for="input-auto-calc">Auto calculate</label><input type="checkbox" id="input-auto-calc" checked/>
-                    <br>
+        <div id="container">
+            <h1>Minecraft Anvil Calculator</h1>
+            <div id="left-panel">
+                <canvas id="canvas" width="750" height="300"></canvas>
+                <div id="control-panel">
+                    <button id="btn-calc">Calculate</button>
+                    <div id="options-panel">
+                        <label for="input-minimise-uses">Minimise anvil uses</label>
+                        <input type="checkbox" id="input-minimise-uses">
+                        <br>
+                        <label for="input-incompatible">Allow incompatible</label>
+                        <input type="checkbox" id="input-incompatible">
+                        <br>
+                        <label for="input-misc">Show misc items</label>
+                        <input type="checkbox" id="input-misc">
+                        <br>
+                        <label for="input-auto-calc">Auto calculate</label>
+                        <input type="checkbox" id="input-auto-calc" checked/>
+                        <br>
+                    </div>
+                    <hr>
+                    <button id="btn-toggle-all">Toggle all</button>
+                    <table id="etable">
+                        <tr>
+                            <th>
+                                <select id="item-selector">
+                                    <option value="none" selected disabled hidden>
+                                        Select an item
+                                    </option>
+                                </select>
+                            </th>
+                            <th>Level</th>
+                            <th>Book Multiplier</th>
+                            <th>Item Multiplier</th>
+                        </tr>
+                    </table>
                 </div>
-                <hr>
-                <button id="btn-toggle-all">Toggle all</button>
-                <table id="etable">
-                    <tr>
-                        <th>
-                            <select id="item-selector">
-                                <option value="none" selected disabled hidden>
-                                    Select an item
-                                </option>
-                            </select>
-                        </th>
-                        <th>Level</th>
-                        <th>Book Multiplier</th>
-                        <th>Item Multiplier</th>
-                    </tr>
-                </table>
             </div>
-        </div>
-        <div id="solution-panel">
-            <h2 id="solution-title"></h2>
-            <table id="solution-table"></table>
+            <div id="solution-panel">
+                <h2 id="solution-title"></h2>
+                <table id="solution-table"></table>
+            </div>
         </div>
         <footer><a href="https://www.github.com/oxoao/mcanvil">Source code</a></footer>
         <script src="main.js"></script>
