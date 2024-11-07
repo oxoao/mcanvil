@@ -331,7 +331,7 @@ function drawTree(itemNodes, tree, perm, root) {
   const ctx = canvasEle.getContext("2d");
   let canvasWidth = canvasEle.width;
   let canvasHeight = canvasEle.height;
-  ctx.clearRect(0, 0, canvasWidth, canvasHeight);
+  ctx.reset();
   const padding = [0, 0];
   canvasWidth -= padding[0] * 2;
   canvasHeight -= padding[1] * 2;
