@@ -358,16 +358,16 @@ function optimalPerm(startItems, tree, bestCost) {
   const a = new Array(len);
   for (let i = 0; i < len; i++) a[i] = i;
 
-  const b = [];
-  contrib(tree, 0, b);
+  const c = [];
+  contrib(tree, 0, c);
 
   a.sort(function (a, b) {
-    return b[a] < b[b] ? -1 : b[a] > b[b] ? 1 : 0;
+    return c[a] < c[b] ? -1 : c[a] > c[b] ? 1 : 0;
   });
 
   let lowerLimit = totalPwp(tree)[0];
   for (let i = 1; i < a.length; i++)
-    lowerLimit += totalXP(startItems[a[i]].e) * b[i];
+    lowerLimit += totalXP(startItems[a.length-i].e) * c[a[i]];
   if (lowerLimit >= bestCost) {
     return [null, Number.MAX_VALUE];
   }
